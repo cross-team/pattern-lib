@@ -13,9 +13,10 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 
 1.  **Start developing.**
 
-    Navigate to the root directory and start it up.
+    Navigate to the root directory to install your dependencies and start it up.
 
     ```
+    yarn install
     yarn run develop
     ```
 
