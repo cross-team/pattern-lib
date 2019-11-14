@@ -20,6 +20,7 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
+    "gatsby-source-github": "0.0.2",
     "gh-pages": "^2.1.1",
     "prettier": "^1.19.1"
   },
