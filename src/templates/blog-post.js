@@ -1,6 +1,6 @@
 import React from "react";
 
-export default ({ data }) => {
+export default function BlogPost ({ data }) {
   const post = data.markdownRemark;
   
   return (
