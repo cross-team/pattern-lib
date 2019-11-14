@@ -1,24 +1,45 @@
-import React from "react"
+import React from "react";
+import Link from "gatsby-link";
 
-export default ({ data }) => {
-  // displays an object of the query data in console
-  // simply access what you need using a map function
-  // data.allFile.edges.map()
-  console.log(data)
-  return <div>Hello world</div>
-}
+export default ({ data }) => {
+  console.log(data);
+  
+  return (
+    <div>
+      <h1 style={{ display: 'inline-block', borderBottom: '1px solid' }}>
+        Amazing Pandas Eating Things
+      </h1>
+      <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+      {data.allMarkdownRemark.edges.map(({ node }) => (
+        <div key={node.id}>
+          <Link to={node.fields.slug} css={{ textDecoration: `none`, color: `inherit` }} >
+            <h3 style={{ marginBottom: '4px' }}>
+              {node.frontmatter.title}{" "}
+              <span style={{ color: "#BBB" }}>— {node.frontmatter.date}</span>
+            </h3>
+          </Link>
+          <p>{node.excerpt}</p>
+        </div>
+      ))}
+    </div>
+  );
+};
 
-export const query = graphql`
-  query MyFilesQuery {
-    allFile {
+export const query = graphql`
+  query IndexQuery {
+    allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
+      totalCount
       edges {
         node {
-          relativePath
-          prettySize
-          extension
-          birthTime(fromNow: true)
+          id
+          frontmatter {
+            title
+            date(formatString: "DD MMMM, YYYY")
+          }
+          fields { slug }
+          excerpt
         }
       }
     }
   }
-`
+`;
