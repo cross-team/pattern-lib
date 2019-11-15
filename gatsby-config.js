@@ -29,6 +29,50 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: 'gatsby-source-github',
+      options: {
+        headers: {
+          Authorization: `Bearer f2422ee381499ffed215fa941eb50d7250f12867`, // https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
+        },
+        queries: [
+          `{
+            repository(owner: "cross-team", name: "pattern-lib") {
+              issues(first: 20, states: OPEN) {
+                edges {
+                  node {
+                    id
+                    author {
+                      avatarUrl
+                      login
+                      url
+                    }
+                    bodyHTML
+                    title
+                    labels(first: 20) {
+                      nodes {
+                        name
+                        description
+                        color
+                        id
+                        url
+                      }
+                    }
+                    milestone {
+                      title
+                      description
+                      id
+                      url
+                    }
+                    url
+                  }
+                }
+              }
+            }
+          }`,
+        ],
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
