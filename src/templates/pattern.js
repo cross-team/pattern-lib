@@ -1,10 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Layout from '../components/layout'
 
 export default ({data}) => {
   const pattern = data.githubIssues
   return (
-    <div dangerouslySetInnerHTML={{ __html: pattern.html }} />
+    <Layout>
+      <div dangerouslySetInnerHTML={{ __html: pattern.html }} />
+    </Layout>
   )
 }
 
@@ -23,7 +26,6 @@ export const query = graphql`
         }
       }
       milestone {
-        description
         title
       }
     }
