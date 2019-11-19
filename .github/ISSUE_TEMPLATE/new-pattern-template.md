@@ -20,13 +20,13 @@ Caption.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi iaculis
 - [Usage](#usage)
 - [Design Assets](#design-assets) 
 - [References](#references)
-- [Accessiblity](#accessbility)
+- [Accessiblity](#accessibility)
 
 ### Title Image
 
 ![sampleImage](https://user-images.githubusercontent.com/25673857/68980317-25f9b280-07ce-11ea-80f1-d0a640224b12.png)
 
-### Problem(s)
+### Problem
 
 #### Problem 1 Title
 
@@ -36,7 +36,7 @@ Problem 1 Description.  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 Problem 2 Description.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi iaculis malesuada turpis at venenatis. Mauris ut cursus lacus. Cras mi tortor, tempus id lorem sed, bibendum finibus risus.
 
-### Solution(s)
+### Solution
 
 #### Solution 1 Title
 
