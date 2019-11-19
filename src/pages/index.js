@@ -19,7 +19,11 @@ const useStyles = makeStyles(theme => ({
   list: {
     width: '100%',
     backgroundColor: theme.palette.grey[200]
-  }
+  },
+  link: {
+    textDecoration: 'none',
+    color: 'inherit',
+  },
 }))
 
 export default ({ data }) => {
@@ -29,11 +33,12 @@ export default ({ data }) => {
   if (data.allGithubIssues.edges) {
     patterns = data.allGithubIssues.edges
   }
-  const listItems = patterns.map((pattern) => (
-    <Link to={pattern.node.fields.slug} key={pattern.node.id}>
+  const listItems = patterns.map((pattern, index) => (
+    <Link to={pattern.node.fields.slug} key={pattern.node.id} className={classes.link}>
       <ListItem>
         <ListItemText primary={pattern.node.title} />
       </ListItem>
+      {index < patterns.length - 1 && <Divider />}
     </Link>
   ))
 

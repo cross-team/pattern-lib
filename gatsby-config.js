@@ -38,7 +38,7 @@ module.exports = {
         queries: [
           `{
             repository(owner: "cross-team", name: "pattern-lib") {
-              issues(first: 20, states: OPEN) {
+              issues(first: 20, states: OPEN, labels: ["cross-team", "publish"]) {
                 edges {
                   node {
                     id
@@ -56,6 +56,46 @@ module.exports = {
                         color
                         id
                         url
+                      }
+                    }
+                    projectCards(first: 20) {
+                      nodes {
+                        project {
+                          name
+                          body
+                          url
+                        }
+                        content
+                        id
+                      }
+                    }
+                    comments(first: 40) {
+                      edges {
+                        cursor
+                        node {
+                          author {
+                            avatarUrl
+                            login
+                            url
+                          }
+                          bodyHTML
+                          createdAt
+                        }
+                      }
+                    }
+                    userContentEdits(first: 100) {
+                      edges {
+                        cursor
+                        node {
+                          diff
+                          editedAt
+                          editor{
+                            avatarUrl
+                            login
+                            url
+                          }
+                          updatedAt
+                        }
                       }
                     }
                     milestone {

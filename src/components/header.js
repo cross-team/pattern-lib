@@ -1,15 +1,28 @@
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { AppBar, Toolbar, Typography } from '@cross.team/core'
+import { AppBar, Toolbar, Typography, makeStyles } from '@cross.team/core'
 
-const Header = ({ siteTitle }) => (
-  <AppBar>
-    <Toolbar>
-      <Typography variant='h6'>{ siteTitle }</Typography>
-    </Toolbar>
-  </AppBar>
-)
+const useStyles = makeStyles(theme => ({
+  link: {
+    textDecoration: 'none',
+    color: 'inherit',
+  },
+}))
+
+const Header = ({ siteTitle }) => {
+  const classes = useStyles()
+  
+  return (
+    <AppBar>
+      <Toolbar>
+        <Link to='/' className={classes.link}>
+          <Typography variant='h6'>{ siteTitle }</Typography>
+        </Link>
+      </Toolbar>
+    </AppBar>
+  )
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
