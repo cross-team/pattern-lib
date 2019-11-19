@@ -16,11 +16,11 @@ Caption.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi iaculis
 ### Table of Contents
 
 - [Problem](#problem)
-  - [Problem 1](#problem-1)
-  - [Problem 2](#problem-2)
 - [Solution](#solution)
-  - [Solution 1](#solution-1)
-  - [Solution 2](#solution-2)
+- [Usage](#usage)
+- [Design Assets](#design-assets) 
+- [References](#references)
+- [Accessiblity](#accessbility)
 
 ### Title Image
 
