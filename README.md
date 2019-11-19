@@ -1,6 +1,11 @@
 # pattern-lib
 
-An open source pattern library built with Gatsby that uses Github issues as its API.
+An open source pattern library built with Gatsby that uses Github issues as its CMS.
+
+## Table of Contents
+
+1. [Gatsby Default Starter](#gatsby-default-starter)
+2. [Instructions: How to Use the Pattern Library](#instructions-how-to-use-the-pattern-library)
 
 ---
 
@@ -84,3 +89,38 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
 
 <!-- AUTO-GENERATED-CONTENT:END -->
+
+---
+
+# Instructions: How to Use the Pattern Library
+
+## Github Issues as CMS
+
+One of the main problems we were trying to solve in this project was providing a Content Management System (CMS) that was familiar, easy to get started with, and inexpensive.
+
+There are great static site generators out there, but could we go further?  
+
+Using **Github Issues** helped solve our problem:
+
+- Creating an issue in Github is familiar to many in the design and development community.  
+- Writing the issue's description in markdown allows for content creation similar to other static site generators.  
+- Github issues provide revision history to help manage content changes.  
+- Issue templates, such as the pattern library template we created, help author specific types of content more easily.
+
+## Creating a Pattern
+
+Use the following Github Issue fields to author your pattern:
+
+- Assignees: Pattern Author(s)
+- Labels: Help others find your pattern with label tags such as `tabs`, `tab-content`, `button`, `carousel`, `image`, etc.
+- Projects: TBD
+- Milestone: Use milestones to create pattern categories such as `component` or `input`.  
+
+After you create your pattern, view issue comment revision history to view edits to your pattern entry.
+
+You can attach any file types accepted by Github Issues, including images and GIFs.  Video is not currently supported.  
+
+## Managing the Pattern Library
+
+- Only open issues are published.  Once an issue is closed, the content is removed from the pattern library.  
+- In the Gatsby configuration, choose certain labels to publish.  For example, choose to only push issues with a label of 'publish' to the pattern library.
