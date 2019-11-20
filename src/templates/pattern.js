@@ -6,7 +6,7 @@ export default ({data}) => {
   const pattern = data.githubIssues
   return (
     <Layout>
-      <div dangerouslySetInnerHTML={{ __html: pattern.html }} />
+      <div dangerouslySetInnerHTML={{ __html: pattern.bodyHTML }} />
     </Layout>
   )
 }

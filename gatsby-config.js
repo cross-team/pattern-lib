@@ -33,7 +33,7 @@ module.exports = {
       resolve: 'gatsby-source-github',
       options: {
         headers: {
-          Authorization: `Bearer f2422ee381499ffed215fa941eb50d7250f12867`, // https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
+          Authorization: `Bearer 7c968f55f318a990b5c84eea85a0a9c6d1d31ba8`, // https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
         },
         queries: [
           `{
