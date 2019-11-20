@@ -1,12 +1,19 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
+const key = `Bearer ${process.env.GITHUB_API_KEY}`
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `Pattern Library`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
     pathPrefix: `/pattern-lib`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-material-ui`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -33,12 +40,12 @@ module.exports = {
       resolve: 'gatsby-source-github',
       options: {
         headers: {
-          Authorization: `Bearer f2422ee381499ffed215fa941eb50d7250f12867`, // https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
+          Authorization: key, // https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
         },
         queries: [
           `{
             repository(owner: "cross-team", name: "pattern-lib") {
-              issues(first: 20, states: OPEN) {
+              issues(first: 20, states: OPEN, labels: ["publish"]) {
                 edges {
                   node {
                     id
@@ -56,6 +63,46 @@ module.exports = {
                         color
                         id
                         url
+                      }
+                    }
+                    projectCards(first: 20) {
+                      nodes {
+                        project {
+                          name
+                          body
+                          url
+                        }
+                        content
+                        id
+                      }
+                    }
+                    comments(first: 40) {
+                      edges {
+                        cursor
+                        node {
+                          author {
+                            avatarUrl
+                            login
+                            url
+                          }
+                          bodyHTML
+                          createdAt
+                        }
+                      }
+                    }
+                    userContentEdits(first: 100) {
+                      edges {
+                        cursor
+                        node {
+                          diff
+                          editedAt
+                          editor{
+                            avatarUrl
+                            login
+                            url
+                          }
+                          updatedAt
+                        }
                       }
                     }
                     milestone {
