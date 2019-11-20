@@ -17,7 +17,7 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 
 ## 🍴 Cloning/Forking this Repo
 
-If you are looking to clone or fork this repo to run it locally, you will need to create a personal access token for the Github API. This can be done by going [here](https://github.com/settings/tokens) while logged into Github. There you can generate a token with the appropriate permissions to read issues. Once it's generated copy it to your clipboard.
+If you are looking to clone or fork this repo to run it locally, you will need to create a personal access token for the Github API. This can be done by going [here](https://github.com/settings/tokens) while logged into Github. There you can generate a token with the appropriate permissions to read issues. Once it's generated, copy the token to your clipboard.
 
 Now create a `.env.development` file in the project root containing: `GITHUB_API_KEY=YOUR_API_KEY` where YOUR_API_KEY is the key you just copied. If you are planning on deploying the app to a production environment you need to create a `.env.production` file as well with the same code as the `.env.development` file you just made.
 
