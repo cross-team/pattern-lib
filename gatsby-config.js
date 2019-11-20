@@ -1,3 +1,9 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
+const key = `Bearer ${process.env.GITHUB_API_KEY}`
+
 module.exports = {
   siteMetadata: {
     title: `Pattern Library`,
@@ -7,6 +13,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-material-ui`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -33,12 +40,12 @@ module.exports = {
       resolve: 'gatsby-source-github',
       options: {
         headers: {
-          Authorization: `Bearer 64fc5b09389cf8e9a659afb6d37c658046deced3`, // https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
+          Authorization: key, // https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
         },
         queries: [
           `{
             repository(owner: "cross-team", name: "pattern-lib") {
-              issues(first: 20, states: OPEN, labels: ["cross-team", "publish"]) {
+              issues(first: 20, states: OPEN, labels: ["publish"]) {
                 edges {
                   node {
                     id

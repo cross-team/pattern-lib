@@ -8,7 +8,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import { css } from '@emotion/core'
 import { makeStyles } from '@cross.team/core'
 
 import Header from "./header"
@@ -42,6 +41,7 @@ const Layout = ({ children }) => {
         style={{
           margin: `0 auto`,
           maxWidth: `72%`,
+          fontFamily: `Roboto, sans-serif`
         }}
       >
         <main className={classes.main}>{children}</main>

@@ -27,7 +27,6 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default ({ data }) => {
-  console.log(data)
   const classes = useStyles()
   let patterns = []
   if (data.allGithubIssues.edges) {
