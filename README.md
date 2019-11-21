@@ -21,6 +21,10 @@ If you are looking to clone or fork this repo to run it locally, you will need t
 
 Now create a `.env.development` file in the project root containing: `GITHUB_API_KEY=YOUR_API_KEY` where YOUR_API_KEY is the key you just copied. If you are planning on deploying the app to a production environment you need to create a `.env.production` file as well with the same code as the `.env.development` file you just made.
 
+## 📝 Creating New Patterns
+
+To create a new pattern for the pattern library to display, go to the Issues tab of the project and click the "New Issue" button. You should be greeted with the "New Pattern Template" and there you can click the "Get Started" button to start filling in the content for your pattern. Once you're done, make sure you add the `publish` label so that it will show up in the application. The app filters out and only displays issues that have the `publish` label.
+
 ## 🚀 Quick start
 
 1.  **Start developing.**
