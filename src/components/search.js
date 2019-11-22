@@ -9,6 +9,7 @@ import {
   Divider,
 } from '@cross.team/core'
 import { Index } from 'elasticlunr'
+import { Typography } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   textField: {
@@ -41,19 +42,23 @@ const Search = ({ data, searchIndex }) => {
     <Link to={pattern.node.fields.slug} key={pattern.node.id} className={classes.link}>
       <ListItem>
         <ListItemText primary={pattern.node.title} />
+        { pattern.node.labels.nodes.map((label) => label.name !== 'publish' && <Typography variant='caption'>{label.name.toUpperCase()}</Typography>)}
       </ListItem>
       {index < patterns.length - 1 && <Divider />}
     </Link>
   ))
 
-  const searchItems = results.map((pattern, pIndex) => (
+  const searchItems = results.map((pattern, pIndex) => {
+    console.log(pattern)
+    return (
     <Link to={pattern.title} key={pattern.id} className={classes.link}>
       <ListItem>
         <ListItemText primary={pattern.title} />
+        { pattern.labels.nodes.map((label) => label.name !== 'publish' && <Typography variant='caption'>{label.name.toUpperCase()}</Typography>)}
       </ListItem>
       {pIndex < results.length - 1 && <Divider />}
     </Link>
-  ))
+  )})
 
   const getOrCreateIndex = () => {
     return index ? index : Index.load(searchIndex)

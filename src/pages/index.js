@@ -18,6 +18,11 @@ export const query = graphql`
         node {
           id
           title
+          labels {
+            nodes {
+              name
+            }
+          }
           fields {
             slug
           }
