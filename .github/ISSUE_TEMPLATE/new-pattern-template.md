@@ -9,7 +9,7 @@ assignees: ''
 
 ### Title
 
-`entry tag`  
+Category: `entry tag`  
 
 Caption.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi iaculis malesuada turpis at venenatis.
 
