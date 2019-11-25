@@ -21,9 +21,28 @@ If you are looking to clone or fork this repo to run it locally, you will need t
 
 Now create a `.env.development` file in the project root containing: `GITHUB_API_KEY=YOUR_API_KEY` where YOUR_API_KEY is the key you just copied. If you are planning on deploying the app to a production environment you need to create a `.env.production` file as well with the same code as the `.env.development` file you just made.
 
+### Forking
+
+If you are forking this repo into your own project, you'll want to change the github API query in the `gatsby.condig` file. If you go to the `module.exports` in that file and in the `plugins` array, you'll find an object with a `resolve` key that has a value of "gatsby-source-github". Underneath that should be an `options` object with a `queries` key and you'll see a line in the query that looks like this:
+```
+repository(owner: "cross-team", name: "pattern-lib") {
+```
+Change the "cross-team" string and replace it with the your username or organization name that you forked this project under.
+
 ## 📝 Creating New Patterns
 
 To create a new pattern for the pattern library to display, go to the Issues tab of the project and click the "New Issue" button. You should be greeted with the "New Pattern Template" and there you can click the "Get Started" button to start filling in the content for your pattern. Once you're done, make sure you add the `publish` label so that it will show up in the application. The app filters out and only displays issues that have the `publish` label.
+
+## 📤 Deploying to Github Pages
+
+Once your pattern library is ready to publish, deploying it to github pages is as simple as running the following command:
+
+```
+yarn run deploy
+```
+
+Now your pattern-lib project is being hosted by github pages! You can find your page by going to the environment section of your repo and clicking "View deployment".
+
 
 ## 🚀 Quick start
 
