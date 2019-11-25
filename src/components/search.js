@@ -7,9 +7,9 @@ import {
   ListItem,
   ListItemText,
   Divider,
-} from '@cross.team/core'
+  Typography
+} from '@material-ui/core'
 import { Index } from 'elasticlunr'
-import { Typography } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   textField: {
