@@ -8,7 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import { makeStyles } from '@cross.team/core'
+import { makeStyles } from '@material-ui/core'
 
 import Header from "./header"
 

@@ -1,7 +1,7 @@
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { AppBar, Toolbar, Typography, makeStyles } from '@cross.team/core'
+import { AppBar, Toolbar, Typography, makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   link: {

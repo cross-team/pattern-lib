@@ -5,11 +5,11 @@
   "version": "0.1.0",
   "author": "Marcello Paiva <marcello.paiva@gmail.com>",
   "dependencies": {
-    "@cross.team/core": "^1.1.9",
-    "@cross.team/icons": "^1.1.5",
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.23",
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.3.0",
+    "@material-ui/core": "^4.7.0",
+    "@material-ui/icons": "^4.5.1",
     "gatsby": "^2.17.11",
     "gatsby-image": "^2.2.31",
     "gatsby-plugin-manifest": "^2.2.27",
