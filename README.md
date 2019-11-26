@@ -31,7 +31,7 @@ Change the "cross-team" string and replace it with the your username or organiza
 
 ## 📝 Creating New Patterns
 
-To create a new pattern for the pattern library to display, go to the Issues tab of the project and click the "New Issue" button. You should be greeted with the "New Pattern Template" and there you can click the "Get Started" button to start filling in the content for your pattern. Once you're done, make sure you add the `publish` label so that it will show up in the application. The app filters out and only displays issues that have the `publish` label.
+To create a new pattern for the pattern library to display, go to the Issues tab of the project and click the "New Issue" button. You should be greeted with the "New Pattern Template" and there you can click the "Get Started" button to start filling in the content for your pattern. Once you're done, make sure you add the `publish` label so that it will show up in the application. The app filters out and only displays issues that have the `publish` label. You can add a milestone to the issue for the specific category that your pattern is in, such as navigation, social, or forms.
 
 ## 📤 Deploying to Github Pages
 
