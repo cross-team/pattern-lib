@@ -42,7 +42,7 @@ const Search = ({ data, searchIndex }) => {
     <Link to={pattern.node.fields.slug} key={pattern.node.id} className={classes.link}>
       <ListItem>
         <ListItemText primary={pattern.node.title} />
-        { pattern.node.labels.nodes.map((label) => label.name !== 'publish' && <Typography variant='caption'>{label.name.toUpperCase()}</Typography>)}
+        <Typography variant='caption'>{pattern.node.milestone.title.toUpperCase()}</Typography>
       </ListItem>
       {index < patterns.length - 1 && <Divider />}
     </Link>
@@ -54,7 +54,7 @@ const Search = ({ data, searchIndex }) => {
     <Link to={pattern.title} key={pattern.id} className={classes.link}>
       <ListItem>
         <ListItemText primary={pattern.title} />
-        { pattern.labels.nodes.map((label) => label.name !== 'publish' && <Typography variant='caption'>{label.name.toUpperCase()}</Typography>)}
+        <Typography variant='caption'>{pattern.milestone.toUpperCase()}</Typography>
       </ListItem>
       {pIndex < results.length - 1 && <Divider />}
     </Link>
