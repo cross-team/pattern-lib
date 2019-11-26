@@ -5,7 +5,6 @@ import {
   TextField,
   List,
   ListItem,
-  ListItemText,
   Divider,
   Typography
 } from '@material-ui/core'
@@ -15,14 +14,20 @@ const useStyles = makeStyles(theme => ({
   textField: {
     width: '100%',
     margin: theme.spacing(4),
+    backgroundColor: '#fff',
   },
   list: {
     width: '100%',
-    backgroundColor: theme.palette.grey[200]
+    backgroundColor: '#fff',
+    border: '1px solid rgba(0, 0, 0, 0.12)',
   },
   link: {
     textDecoration: 'none',
     color: 'inherit',
+  },
+  listItem: {
+    display: 'flex',
+    justifyContent: 'space-between',
   },
 }))
 
@@ -40,8 +45,8 @@ const Search = ({ data, searchIndex }) => {
   }
   const listItems = patterns.map((pattern, index) => (
     <Link to={pattern.node.fields.slug} key={pattern.node.id} className={classes.link}>
-      <ListItem>
-        <ListItemText primary={pattern.node.title} />
+      <ListItem className={classes.listItem}>
+        <Typography>{pattern.node.title}</Typography>
         <Typography variant='caption'>{pattern.node.milestone.title.toUpperCase()}</Typography>
       </ListItem>
       {index < patterns.length - 1 && <Divider />}
@@ -52,8 +57,8 @@ const Search = ({ data, searchIndex }) => {
     console.log(pattern)
     return (
     <Link to={pattern.title} key={pattern.id} className={classes.link}>
-      <ListItem>
-        <ListItemText primary={pattern.title} />
+      <ListItem className={classes.listItem}>
+        <Typography>{pattern.title}</Typography>
         <Typography variant='caption'>{pattern.milestone.toUpperCase()}</Typography>
       </ListItem>
       {pIndex < results.length - 1 && <Divider />}
@@ -76,7 +81,7 @@ const Search = ({ data, searchIndex }) => {
       <TextField
         className={classes.textField}
         label='Search'
-        variant="filled"
+        variant="outlined"
         value={query}
         onChange={search}
       />
