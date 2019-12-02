@@ -16,7 +16,7 @@ jobs:
       uses: Borales/actions-yarn@v2.1.0
       with:
         # Yarn command
-        cmd: yarn run build
+        cmd: build
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@3.0.4
       with:
