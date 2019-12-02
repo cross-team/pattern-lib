@@ -9,7 +9,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    env: ${{ secrets.GITHUB_API_KEY }}
     steps:
     - uses: actions/checkout@v1
     - name: yarn install
