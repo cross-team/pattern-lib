@@ -12,7 +12,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: GitHub Action for Yarn
+    - name: yarn install
+      uses: Borales/actions-yarn@v2.1.0
+      with:
+        # Yarn command
+        cmd: install
+    - name: yarn build 
       uses: Borales/actions-yarn@v2.1.0
       with:
         # Yarn command
