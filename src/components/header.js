@@ -17,6 +17,7 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     margin: theme.spacing(1),
+    color: '#fff',
   },
   linkContainer: {
     width: '100%',
@@ -36,7 +37,7 @@ const Header = ({ siteTitle }) => {
       <div className={classes.linkContainer}>
         <Toolbar className={classes.toolbar}>
           <Link to='/' className={classes.link}>
-            <HomeIcon />
+            <HomeIcon className={classes.title} />
             <Typography variant='h6' className={classes.title}>{ siteTitle }</Typography>
           </Link>
         </Toolbar>

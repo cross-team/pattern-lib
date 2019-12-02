@@ -25,6 +25,11 @@ const theme = createMuiTheme({
       '"Segoe UI Symbol"',
     ].join(','),
   },
+  palette: {
+    primary: {
+      main: '#ff8001'
+    },
+  }
 })
 
 const useStyles = makeStyles({
