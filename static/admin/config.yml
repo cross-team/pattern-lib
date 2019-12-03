@@ -1,5 +1,6 @@
 backend:
-  name: test-repo
+  name: github
+  repo: cross-team/pattern-lib
 
 publish_mode: editorial_workflow
 media_folder: static/assets
@@ -11,55 +12,42 @@ collections:
     folder: pattern
     create: true
     fields:
-      - { name: path, label: Path }
-      - { name: date, label: Date, widget: datetime }
       - { name: title, label: Title }
+      - { name: date, label: Date, widget: datetime }
+      - { name: label, label: Label }
+      - { name: caption, label: Caption, widget: string}
       - { name: problem, label: Problem, widget: markdown }
       - { name: solution, label: Solution, widget: markdown }
       - { name: usage, label: Usage, widget: markdown }
-      - label: "Asset 1"
-        name: "asset1"
+      - { name: accessibility, label: Accessibility, widget: markdown }
+      - label: "Asset"
+        required: false
+        name: "asset"
         widget: "object"
         fields: 
-          - {label: "Title", name: "title"}
-          - {label: "Description", name: "description", widget: "text"}
-          - {label: "URL", name: "url", widget: "string"}
-          - {label: "Attachment", name: "attachment", widget: "file"}
-      - label: "Asset 2"
-        name: "asset2"
-        widget: "object"
-        fields: 
-          - {label: "Title", name: "title"}
-          - {label: "Description", name: "description", widget: "text"}
-          - {label: "URL", name: "url", widget: "string"}
-          - {label: "Attachment", name: "attachment", widget: "file"}
-      - label: "Asset 3"
-        name: "asset3"
-        widget: "object"
-        fields: 
-          - {label: "Title", name: "title"}
-          - {label: "Description", name: "description", widget: "text"}
-          - {label: "URL", name: "url", widget: "string"}
-          - {label: "Attachment", name: "attachment", widget: "file"}
+          - {label: "Image", name: "image", widget: "image", required: false}
+          - {label: "Caption", name: "caption", widget: "string", required: false}
       - label: "Reference 1"
+        required: false
         name: "reference1"
         widget: "object"
         fields: 
-          - {label: "Title", name: "title"}
-          - {label: "Description", name: "description", widget: "text"}
-          - {label: "URL", name: "url", widget: "string"}
+          - {label: "Title", name: "title", required: false}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          - {label: "URL", name: "url", widget: "string", required: false}
       - label: "Reference 2"
+        required: false
         name: "reference2"
         widget: "object"
         fields: 
-          - {label: "Title", name: "title"}
-          - {label: "Description", name: "description", widget: "text"}
-          - {label: "URL", name: "url", widget: "string"}
+          - {label: "Title", name: "title", required: false}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          - {label: "URL", name: "url", widget: "string", required: false}
       - label: "Reference 3"
+        required: false
         name: "reference3"
         widget: "object"
         fields: 
-          - {label: "Title", name: "title"}
-          - {label: "Description", name: "description", widget: "text"}
-          - {label: "URL", name: "url", widget: "string"}
-      - { name: accessibility, label: Accessibility, widget: markdown }
+          - {label: "Title", name: "title", required: false}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          - {label: "URL", name: "url", widget: "string", required: false}
