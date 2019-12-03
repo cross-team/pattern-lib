@@ -19,5 +19,8 @@ accessibility: |-
   ## Accessibility Title
 
   Accessibility description
+asset:
+  caption: Candles on a birthday cake
+  image: /assets/cake.gif
 ---
 
