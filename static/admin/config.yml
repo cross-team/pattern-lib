@@ -1,16 +1,65 @@
 backend:
   name: test-repo
 
+publish_mode: editorial_workflow
 media_folder: static/assets
 public_folder: assets
 
 collections:
-  - name: blog
-    label: Blog
-    folder: blog
+  - name: pattern
+    label: Pattern
+    folder: pattern
     create: true
     fields:
       - { name: path, label: Path }
       - { name: date, label: Date, widget: datetime }
       - { name: title, label: Title }
-      - { name: body, label: Body, widget: markdown }
+      - { name: problem, label: Problem, widget: markdown }
+      - { name: solution, label: Solution, widget: markdown }
+      - { name: usage, label: Usage, widget: markdown }
+      - label: "Asset 1"
+        name: "asset1"
+        widget: "object"
+        fields: 
+          - {label: "Title", name: "title"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "URL", name: "url", widget: "string"}
+          - {label: "Attachment", name: "attachment", widget: "file"}
+      - label: "Asset 2"
+        name: "asset2"
+        widget: "object"
+        fields: 
+          - {label: "Title", name: "title"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "URL", name: "url", widget: "string"}
+          - {label: "Attachment", name: "attachment", widget: "file"}
+      - label: "Asset 3"
+        name: "asset3"
+        widget: "object"
+        fields: 
+          - {label: "Title", name: "title"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "URL", name: "url", widget: "string"}
+          - {label: "Attachment", name: "attachment", widget: "file"}
+      - label: "Reference 1"
+        name: "reference1"
+        widget: "object"
+        fields: 
+          - {label: "Title", name: "title"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "URL", name: "url", widget: "string"}
+      - label: "Reference 2"
+        name: "reference2"
+        widget: "object"
+        fields: 
+          - {label: "Title", name: "title"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "URL", name: "url", widget: "string"}
+      - label: "Reference 3"
+        name: "reference3"
+        widget: "object"
+        fields: 
+          - {label: "Title", name: "title"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "URL", name: "url", widget: "string"}
+      - { name: accessibility, label: Accessibility, widget: markdown }
