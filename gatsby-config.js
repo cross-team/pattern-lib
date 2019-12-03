@@ -5,6 +5,7 @@ require("dotenv").config({
 const key = `Bearer ${process.env.GITHUB_API_KEY}`
 
 module.exports = {
+  pathPrefix: "/pattern-lib",
   siteMetadata: {
     title: `Pattern Library`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
