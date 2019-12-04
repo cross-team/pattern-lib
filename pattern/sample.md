@@ -2,7 +2,7 @@
 title: Sample
 date: 2019-12-03T21:21:32.813Z
 label: Label
-caption: This is an edited caption
+caption: This is a caption
 problem: |-
   ## Problem Title
 
