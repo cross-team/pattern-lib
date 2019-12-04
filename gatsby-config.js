@@ -48,7 +48,9 @@ module.exports = {
           // For any node of type MarkdownRemark, list how to resolve the fields` values
           GithubIssues: {
             title: node => node.title,
-            milestone: node => node.milestone.title ,
+            milestone: node => node.milestone.title,
+            slug: node => node.fields.slug,
+            tags: node => [node.milestone.title]
           }
         }
       }
@@ -135,6 +137,19 @@ module.exports = {
             }
           }`,
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-react-axe',
+      options: {
+        // Integrate react-axe in production. This defaults to false.
+        showInProduction: false,
+
+        // Options to pass to axe-core.
+        // See: https://github.com/dequelabs/axe-core/blob/master/doc/API.md#api-name-axeconfigure
+        axeOptions: {
+          // Your axe-core options.
+        },
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

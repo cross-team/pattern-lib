@@ -28,23 +28,33 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "babel-jest": "^24.9.0",
+    "babel-preset-gatsby": "^0.2.23",
     "eslint-config-react-app": "^5.0.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "gatsby-plugin-react-axe": "^0.3.0",
     "gatsby-source-github": "0.0.2",
     "gh-pages": "^2.1.1",
-    "prettier": "^1.19.1"
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.9.0",
+    "prettier": "^1.19.1",
+    "react-axe": "^3.3.0",
+    "react-test-renderer": "^16.12.0"
   },
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build --prefix-paths",
+    "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "deploy": "gatsby build",
+    "test": "jest",
     "clean": "gatsby clean"
   },
   "repository": {
