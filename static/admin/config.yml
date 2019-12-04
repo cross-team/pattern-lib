@@ -1,6 +1,8 @@
 backend:
-  name: github
-  repo: cross-team/pattern-lib
+  name: git-gateway
+  accept_roles: #optional - accepts all users if left out
+    - admin
+    - editor
 
 publish_mode: editorial_workflow
 media_folder: static/assets
