@@ -1,8 +1,5 @@
 backend:
   name: git-gateway
-  accept_roles: #optional - accepts all users if left out
-    - admin
-    - editor
 
 publish_mode: editorial_workflow
 media_folder: static/assets
@@ -16,7 +13,12 @@ collections:
     fields:
       - { name: title, label: Title }
       - { name: date, label: Date, widget: datetime }
-      - { name: label, label: Label }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["Getting input", "Navigation", "Dealing with data", "Social", "Miscellaneous", "Onbaording"]
+      - { name: subcategory, label: Subcategory, widget: string}
+      - { name: tags, label: Tags, widget: list}
       - { name: caption, label: Caption, widget: string}
       - { name: problem, label: Problem, widget: markdown }
       - { name: solution, label: Solution, widget: markdown }
