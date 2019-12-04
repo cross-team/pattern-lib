@@ -2,8 +2,6 @@ name: CI
 
 on: 
   push:	
-      branches:	
-        - master
 
 jobs:
   build:
@@ -16,18 +14,10 @@ jobs:
       with:
         # Yarn command
         cmd: install
-    - name: yarn build 
+    - name: yarn test
       uses: Borales/actions-yarn@v2.1.0
-      env: 
-        GITHUB_API_KEY: ${{ secrets.GITHUB_API_KEY }}
       with:
         # Yarn command
-        cmd: build
-    - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@3.0.4
-      with:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BASE_BRANCH: master # The branch the action should deploy from.
-        BRANCH: gh-pages # The branch the action should deploy to.
-        FOLDER: public # The folder the action should deploy.
-          
+        cmd: test
+
+
