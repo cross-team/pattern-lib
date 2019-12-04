@@ -38,30 +38,17 @@ const Search = ({ data, searchIndex }) => {
 
   const classes = useStyles()
 
-  
-  let patterns = []
-  if (data.allGithubIssues.edges) {
-    patterns = data.allGithubIssues.edges
-  }
-  const listItems = patterns.map((pattern, index) => (
-    <Link to={pattern.node.fields.slug} key={pattern.node.id} className={classes.link}>
-      <ListItem className={classes.listItem}>
-        <Typography>{pattern.node.title}</Typography>
-        <Typography variant='caption'>{pattern.node.milestone.title.toUpperCase()}</Typography>
-      </ListItem>
-      {index < patterns.length - 1 && <Divider />}
-    </Link>
-  ))
+  let patterns = data || []
 
-  const searchItems = results.map((pattern, pIndex) => {
-    console.log(pattern)
+  const searchItems = items => items.map(({title, id, tags, slug}, pIndex) => {
+    const uppercaseTags = tags.map(tag => `${tag.toUpperCase()} `)
     return (
-    <Link to={pattern.title} key={pattern.id} className={classes.link}>
+    <Link to={slug} key={id} className={classes.link}>
       <ListItem className={classes.listItem}>
-        <Typography>{pattern.title}</Typography>
-        <Typography variant='caption'>{pattern.milestone.toUpperCase()}</Typography>
+        <Typography>{title}</Typography>
+        <Typography variant='caption'>{uppercaseTags}</Typography>
       </ListItem>
-      {pIndex < results.length - 1 && <Divider />}
+      {pIndex < items.length - 1 && <Divider />}
     </Link>
   )})
 
@@ -69,11 +56,14 @@ const Search = ({ data, searchIndex }) => {
     return index ? index : Index.load(searchIndex)
   }
 
-  const search = evt => {
+  const search = query => index.search(`${query}`, { expand: true })
+  const mapResults = results => results.map(({ ref }) => index.documentStore.getDoc(ref))
+  const handleSearch = evt => {
     const query = evt.target.value
     index = getOrCreateIndex()
     setQuery(query)
-    setResults(index.search(query, { expand: true }).map(({ ref }) => index.documentStore.getDoc(ref)))
+    const mappedResults = mapResults(search(query))
+    setResults(mappedResults)
   }
 
   return (
@@ -81,12 +71,13 @@ const Search = ({ data, searchIndex }) => {
       <TextField
         className={classes.textField}
         label='Search'
+        placeholder='Search'
         variant="outlined"
         value={query}
-        onChange={search}
+        onChange={handleSearch}
       />
       <List className={classes.list}>
-        { query ? searchItems : listItems }
+        { query ? searchItems(results) : searchItems(patterns) }
       </List>
     </>
   )
