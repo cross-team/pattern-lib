@@ -13,45 +13,42 @@ collections:
     fields:
       - { name: title, label: Title }
       - { name: date, label: Date, widget: datetime }
-      - label: "Category"
-        name: "category"
-        widget: "select"
+      - label: Category
+        name: category
+        widget: select
         options: ["Getting input", "Navigation", "Dealing with data", "Social", "Miscellaneous", "Onbaording"]
       - { name: subcategory, label: Subcategory, widget: string}
-      - { name: tags, label: Tags, widget: list}
+      - label: Tags
+        name: tags
+        widget: list
+        field: { name: tag, label: Tag }
       - { name: caption, label: Caption, widget: string}
       - { name: problem, label: Problem, widget: markdown }
       - { name: solution, label: Solution, widget: markdown }
       - { name: usage, label: Usage, widget: markdown }
       - { name: accessibility, label: Accessibility, widget: markdown }
-      - label: "Asset"
+      - label: Assets
         required: false
-        name: "asset"
-        widget: "object"
+        name: assets
+        widget: list
         fields:
-          - {label: "Image", name: "image", widget: "image", required: false}
-          - {label: "Caption", name: "caption", widget: "string", required: false}
-      - label: "Reference 1"
+          - label: Asset
+            required: false
+            name: asset
+            widget: object
+            fields:
+              - {label: Image, name: image, widget: image, required: false}
+              - {label: Caption, name: caption, widget: string, required: false}
+      - label: References
         required: false
-        name: "reference1"
-        widget: "object"
+        name: references
+        widget: list
         fields:
-          - {label: "Title", name: "title", required: false}
-          - {label: "Description", name: "description", widget: "text", required: false}
-          - {label: "URL", name: "url", widget: "string", required: false}
-      - label: "Reference 2"
-        required: false
-        name: "reference2"
-        widget: "object"
-        fields:
-          - {label: "Title", name: "title", required: false}
-          - {label: "Description", name: "description", widget: "text", required: false}
-          - {label: "URL", name: "url", widget: "string", required: false}
-      - label: "Reference 3"
-        required: false
-        name: "reference3"
-        widget: "object"
-        fields:
-          - {label: "Title", name: "title", required: false}
-          - {label: "Description", name: "description", widget: "text", required: false}
-          - {label: "URL", name: "url", widget: "string", required: false}
+          - label: Reference
+            required: false
+            name: reference
+            widget: object
+            fields:
+              - {label: Title, name: title, required: false}
+              - {label: Description, name: description, widget: text, required: false}
+              - {label: URL, name: url, widget: string, required: false}
