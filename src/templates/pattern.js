@@ -12,30 +12,24 @@ const useStyles = makeStyles({
 
 export default ({data}) => {
   const classes = useStyles()
-  const pattern = data.githubIssues
+  const { markdownRemark } = data // data.markdownRemark holds your post data
+  const { html } = markdownRemark
   return (
     <Layout >
-      <div className={classes.content} dangerouslySetInnerHTML={{ __html: pattern.bodyHTML }} />
+      <div className={classes.content} dangerouslySetInnerHTML={{ __html: html }} />
     </Layout>
   )
 }
 
 export const query = graphql`
-  query PatternQuery($slug: String!) {
-    githubIssues(fields: { slug: { eq: $slug } }) {
-      id
-      title
-      bodyHTML
-      url
-      labels {
-        nodes {
-          color
-          description
-          name
-        }
-      }
-      milestone {
+query($path: String!) {
+    markdownRemark(fields: { slug: { eq: $path } }) {
+      html
+      frontmatter {
         title
+      }
+      fields {
+        slug
       }
     }
   }

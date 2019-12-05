@@ -19,8 +19,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `src`,
-        path: `${__dirname}/src/blog/`,
+        name: `pattern`,
+        path: `${__dirname}/src/pattern/`,
       },
     },
     `gatsby-transformer-remark`,
@@ -42,15 +42,14 @@ module.exports = {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
         // Fields to index
-        fields: [`title`, `milestone`],
+        fields: [`title`, `tags`],
         // How to resolve each field`s value for a supported node type
         resolvers: {
           // For any node of type MarkdownRemark, list how to resolve the fields` values
-          GithubIssues: {
-            title: node => node.title,
-            milestone: node => node.milestone.title,
+          MarkdownRemark: {
+            title: node => node.frontmatter.title,
             slug: node => node.fields.slug,
-            tags: node => [node.milestone.title]
+            tags: node => node.frontmatter.tags
           }
         }
       }

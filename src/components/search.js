@@ -40,8 +40,8 @@ const Search = ({ data, searchIndex }) => {
 
   let patterns = data || []
 
-  const searchItems = items => items.map(({title, id, tags, slug}, pIndex) => {
-    const uppercaseTags = tags.map(tag => `${tag.toUpperCase()} `)
+  const searchItems = items => items.map(({ title, id, tags, slug }, pIndex) => {
+    const uppercaseTags = tags ? tags.map(tag => `${tag.toUpperCase()} `) : []
     return (
     <Link to={slug} key={id} className={classes.link}>
       <ListItem className={classes.listItem}>

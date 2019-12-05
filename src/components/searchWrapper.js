@@ -2,15 +2,6 @@ import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import Search from '../components/search'
 
-export const mapGithubIssues = ({allGithubIssues}) => allGithubIssues.edges.map(({ node }) => {
-  return {
-    id: node.id,
-    title: node.title,
-    tags: [node.milestone.title],
-    slug: node.fields.slug
-  }
-}
-  )
 const SearchWrapper = ({ data }) => {
   return (
     <StaticQuery
@@ -22,7 +13,7 @@ const SearchWrapper = ({ data }) => {
         }
       `}
       render={ indexData => (
-        <Search data={ mapGithubIssues(data) } searchIndex={indexData.siteSearchIndex.index} />
+        <Search data={ data } searchIndex={indexData.siteSearchIndex.index} />
       )}
     />
   )
