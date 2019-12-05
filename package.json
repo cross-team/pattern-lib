@@ -35,7 +35,6 @@
     "eslint-config-react-app": "^5.0.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "gatsby-plugin-react-axe": "^0.3.0",
-    "gatsby-source-github": "0.0.2",
     "gh-pages": "^2.1.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
