@@ -2,8 +2,6 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-const key = `Bearer ${process.env.GITHUB_API_KEY}`
-
 module.exports = {
   pathPrefix: "/pattern-lib",
   siteMetadata: {
@@ -53,90 +51,6 @@ module.exports = {
           }
         }
       }
-    },
-    {
-      resolve: 'gatsby-source-github',
-      options: {
-        headers: {
-          Authorization: key, // https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
-        },
-        queries: [
-          `{
-            repository(owner: "cross-team", name: "pattern-lib") {
-              issues(first: 20, states: OPEN, labels: ["publish"]) {
-                edges {
-                  node {
-                    id
-                    author {
-                      avatarUrl
-                      login
-                      url
-                    }
-                    bodyHTML
-                    title
-                    labels(first: 20) {
-                      nodes {
-                        name
-                        description
-                        color
-                        id
-                        url
-                      }
-                    }
-                    projectCards(first: 20) {
-                      nodes {
-                        project {
-                          name
-                          body
-                          url
-                        }
-                        content
-                        id
-                      }
-                    }
-                    comments(first: 40) {
-                      edges {
-                        cursor
-                        node {
-                          author {
-                            avatarUrl
-                            login
-                            url
-                          }
-                          bodyHTML
-                          createdAt
-                        }
-                      }
-                    }
-                    userContentEdits(first: 100) {
-                      edges {
-                        cursor
-                        node {
-                          diff
-                          editedAt
-                          editor{
-                            avatarUrl
-                            login
-                            url
-                          }
-                          updatedAt
-                        }
-                      }
-                    }
-                    milestone {
-                      title
-                      description
-                      id
-                      url
-                    }
-                    url
-                  }
-                }
-              }
-            }
-          }`,
-        ],
-      },
     },
     {
       resolve: 'gatsby-plugin-react-axe',
