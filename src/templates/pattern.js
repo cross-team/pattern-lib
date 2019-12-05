@@ -1,22 +1,32 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
-import { makeStyles } from '@material-ui/core'
+import { makeStyles, Paper, Typography } from '@material-ui/core'
 
-const useStyles = makeStyles({
-  content: {
-    backgroundColor: '#fff',
-    padding: '0 96px'
-  }
-})
+const useStyles = makeStyles(theme => ({
+  banner: {
+    width: '100%',
+    height: '200px',
+    display: 'flex',
+    alignItems: 'center',
+    backgroundColor: '#333333',
+    borderTop: 'solid 1px #ff8001',
+  },
+  title: {
+    color: '#fff',
+    margin: theme.spacing(2),
+  },
+}))
 
 export default ({data}) => {
   const classes = useStyles()
-  const { markdownRemark } = data // data.markdownRemark holds your post data
-  const { html } = markdownRemark
+  const { frontmatter } = data.markdownRemark // data.markdownRemark holds your post data
+  console.log(frontmatter)
   return (
     <Layout >
-      <div className={classes.content} dangerouslySetInnerHTML={{ __html: html }} />
+      <Paper className={classes.banner}>
+        <Typography variant='h2' className={classes.title}>{ frontmatter.title ? frontmatter.title : '' }</Typography>
+      </Paper>
     </Layout>
   )
 }
