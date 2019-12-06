@@ -10,6 +10,9 @@ export default ({ data }) => {
     id: node.id,
     title: node.frontmatter.title,
     tags: node.frontmatter.tags,
+    caption: node.frontmatter.caption,
+    category: node.frontmatter.category,
+    subcategory: node.frontmatter.subcategory,
     slug: node.fields.slug
   }))
   return (
@@ -28,6 +31,7 @@ export const query = graphql`
           frontmatter {
             title
             tags
+            caption
             category
             subcategory
           }
