@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withWidth, makeStyles, Paper, Typography, Chip } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
-  banner: {
+  banner: props => ({
     width: '100%',
     minHeight: '200px',
     display: 'flex',
@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     flexWrap: 'wrap',
     backgroundColor: '#333333',
     color: '#fff',
-  },
+  }),
   title: {
     margin: theme.spacing(2),
   },
@@ -40,40 +40,70 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  mobileContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  }
 }))
 
 function Banner(props) {
-  const classes = useStyles()
   const { width, frontmatter } = props
+  let styleProps
+  if (width === 'xs' || width === 'sm') {
+    styleProps = 'center'
+  } else {
+    styleProps = 'space-between'
+  }
+  const classes = useStyles(styleProps)
 
   return (
     <Paper className={classes.banner}>
-      <div className={classes.titleContainer}>
-        <Typography variant='h3' className={classes.title}>{ frontmatter.title ? frontmatter.title : '' }</Typography>
-        <Typography className={classes.title}>{ frontmatter.caption ? frontmatter.caption : '' }</Typography>
-      </div>
-      <div className={classes.classifiers}>
-        <div className={classes.categoryContainer}>
-          <Typography variant='h6' className={classes.rightMargin}>Category:</Typography>
-          <Typography variant='h6' className={classes.rightMargin}>{ frontmatter.category ? frontmatter.category : '' }</Typography>
+      { (width === 'xs' || width === 'sm') ? (
+        <div className={classes.mobileContainer}>
+          <Typography variant='h3' className={classes.title}>{ frontmatter.title ? frontmatter.title : '' }</Typography>
+          <Typography className={classes.title}>{ frontmatter.caption ? frontmatter.caption : '' }</Typography>
+          <div className={classes.categoryContainer}>
+            <Typography variant='caption' className={classes.rightMargin}>{ frontmatter.category ? frontmatter.category : '' }:</Typography>
+            <Typography variant='caption' className={classes.rightMargin}>{ frontmatter.subcategory ? frontmatter.subcategory : '' }</Typography>
+          </div>
+          <div className={classes.chipContainer}>
+            <Typography className={classes.rightMargin}>Tags:</Typography>
+            { frontmatter.tags.map((tag) => 
+              <Chip label={tag} color="primary" className={classes.rightMargin} />
+            ) }
+          </div>
         </div>
-        <div className={classes.categoryContainer}>
-          <Typography className={classes.rightMargin}>Subcategory:</Typography>
-          <Typography className={classes.rightMargin}>{ frontmatter.subcategory ? frontmatter.subcategory : '' }</Typography>
-        </div>
-        <div className={classes.chipContainer}>
-          <Typography className={classes.rightMargin}>Tags:</Typography>
-          { frontmatter.tags.map((tag) => 
-            <Chip label={tag} color="primary" className={classes.rightMargin} />
-          ) }
-        </div>
-      </div>
+      ) : (
+        <>
+          <div className={classes.titleContainer}>
+            <Typography variant='h3' className={classes.title}>{ frontmatter.title ? frontmatter.title : '' }</Typography>
+            <Typography className={classes.title}>{ frontmatter.caption ? frontmatter.caption : '' }</Typography>
+          </div>
+          <div className={classes.classifiers}>
+            <div className={classes.categoryContainer}>
+              <Typography variant='h6' className={classes.rightMargin}>Category:</Typography>
+              <Typography variant='h6' className={classes.rightMargin}>{ frontmatter.category ? frontmatter.category : '' }</Typography>
+            </div>
+            <div className={classes.categoryContainer}>
+              <Typography className={classes.rightMargin}>Subcategory:</Typography>
+              <Typography className={classes.rightMargin}>{ frontmatter.subcategory ? frontmatter.subcategory : '' }</Typography>
+            </div>
+            <div className={classes.chipContainer}>
+              <Typography className={classes.rightMargin}>Tags:</Typography>
+              { frontmatter.tags.map((tag) => 
+                <Chip label={tag} color="primary" className={classes.rightMargin} />
+              ) }
+            </div>
+          </div>
+        </>
+      )}
     </Paper>
   )
 }
 
 Banner.propTypes = {
-  width: PropTypes.oneOf(['lg', 'md', 'sm', 'xl', 'xs']).isRequired,
+  width: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']).isRequired,
 }
 
 export default withWidth()(Banner)
