@@ -4,7 +4,6 @@ import {
   makeStyles,
   TextField,
   List,
-  ListItem,
   Divider,
   Typography
 } from '@material-ui/core'
@@ -28,6 +27,16 @@ const useStyles = makeStyles(theme => ({
   listItem: {
     display: 'flex',
     justifyContent: 'space-between',
+    paddingLeft: '16px',
+    paddingRight: '16px',
+    width: '100%',
+    position: 'relative',
+    boxSizing: 'border-box',
+    textAlign: 'left',
+    alignItems: 'center',
+    paddingTop: '8px',
+    paddingBottom: '8px',
+    textDecoration: 'none'
   },
 }))
 
@@ -43,13 +52,15 @@ const Search = ({ data, searchIndex }) => {
   const searchItems = items => items.map(({ title, id, tags, slug }, pIndex) => {
     const uppercaseTags = tags ? tags.map(tag => `${tag.toUpperCase()} `) : []
     return (
-    <Link to={slug} key={id} className={classes.link}>
-      <ListItem className={classes.listItem}>
-        <Typography>{title}</Typography>
-        <Typography variant='caption'>{uppercaseTags}</Typography>
-      </ListItem>
-      {pIndex < items.length - 1 && <Divider />}
-    </Link>
+    <li key={id}>
+      <Link to={slug} className={classes.link}>
+        <div className={classes.listItem}>
+          <Typography>{title}</Typography>
+          <Typography variant='caption'>{uppercaseTags}</Typography>
+        </div>
+        {pIndex < items.length - 1 && <Divider />}
+      </Link>
+    </li>
   )})
 
   const getOrCreateIndex = () => {
@@ -69,6 +80,7 @@ const Search = ({ data, searchIndex }) => {
   return (
     <>
       <TextField
+        id="search"
         className={classes.textField}
         label='Search'
         placeholder='Search'

@@ -31,14 +31,14 @@ const useStyles = makeStyles(theme => ({
 
 const Header = ({ siteTitle }) => {
   const classes = useStyles()
-  
+
   return (
     <AppBar className={classes.header}>
       <div className={classes.linkContainer}>
         <Toolbar className={classes.toolbar}>
           <Link to='/' className={classes.link}>
             <HomeIcon className={classes.title} />
-            <Typography variant='h6' className={classes.title}>{ siteTitle }</Typography>
+            <Typography variant='h6' component='h1' className={classes.title}>{ siteTitle }</Typography>
           </Link>
         </Toolbar>
       </div>
