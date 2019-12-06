@@ -9,6 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core'
+import ViewContextProvider from '../context/view'
 
 import Header from "./header"
 
@@ -57,8 +58,10 @@ const Layout = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <main className={classes.main}>{children}</main>
+      <ViewContextProvider>
+        <Header siteTitle={data.site.siteMetadata.title} />
+        <main className={classes.main}>{children}</main>
+      </ViewContextProvider>
     </ThemeProvider>
   )
 }
