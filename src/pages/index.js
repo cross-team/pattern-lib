@@ -2,7 +2,8 @@ import React from 'react'
 import '../styles/index.css'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
-import SearchWrapper from '../components/searchWrapper'
+import SearchWrapper from '../components/search-wrapper'
+import SEO from "../components/seo"
 
 export default ({ data }) => {
   const mapMarkdown = ({allMarkdownRemark}) => allMarkdownRemark.edges.map(({node}) => ({
@@ -13,6 +14,7 @@ export default ({ data }) => {
   }))
   return (
     <Layout>
+      <SEO title="Pattern Library" />
       <SearchWrapper data={ mapMarkdown(data) } />
     </Layout>
   )
