@@ -24,6 +24,7 @@ const useStyles = makeStyles(theme => ({
     paddingTop: '56.25%', // 16:9
   },
   footer: {
+      margin: theme.spacing(1),
       flexDirection: 'column'
   }
 }));
@@ -55,14 +56,14 @@ export default function CardView({ cardData }) {
 
       </CardContent>
       <Divider />
-      <CardActions disableSpacing className={classes.footer}>
+      <div className={classes.footer}>
         {category} : {subcategory}
         <div>
             {tags.map((tag) => <IconButton aria-label={tag}>
-            <Chip label={tags} />
+                <Chip label={tags} color="primary"/>
             </IconButton>)}
         </div>
-      </CardActions>
+      </div>
     </Card>
   );
 }
