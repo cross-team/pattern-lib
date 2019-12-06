@@ -47,7 +47,7 @@ const Header = ({ siteTitle }) => {
             <HomeIcon className={classes.title} />
             <Typography variant='h6' component='h1' className={classes.title}>{ siteTitle }</Typography>
           </Link>
-          <ViewList color='disabled'/>
+          <ViewList style={{ color: 'white' }}/>
           <Switch
             checked={cardView}
             onChange={handleChange()}
