@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Link from 'gatsby-link'
 import {
   makeStyles,
@@ -9,6 +9,9 @@ import {
   Chip,
 } from '@material-ui/core'
 import { Index } from 'elasticlunr'
+import { ViewContext } from '../context/view'
+import CardView from '../components/card-view'
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles(theme => ({
   textField: {
@@ -58,14 +61,15 @@ const useStyles = makeStyles(theme => ({
 const Search = ({ data, searchIndex }) => {
   const [query, setQuery] = useState(``)
   const [results, setResults] = useState([])
+  const { cardView } = useContext(ViewContext)
   let index
 
   const classes = useStyles()
 
   let patterns = data || []
 
-  const searchItems = items => items.map(({ title, id, tags, slug, caption, category, subcategory }, pIndex) => {
-    const chips = tags ? tags.map((tag) => 
+  const listItems = items => items.map(({ title, id, tags, slug, caption, category, subcategory }, pIndex) => {
+    const chips = tags ? tags.map((tag) =>
       <Chip label={tag} color="primary" className={classes.rightMargin} />
     ) : []
     return (
@@ -85,6 +89,15 @@ const Search = ({ data, searchIndex }) => {
           {pIndex < items.length - 1 && <Divider />}
         </Link>
       </li>
+  )})
+
+  const cards = items => items.map((cardData, pIndex) => {
+    return (
+      <Grid item key={cardData.id} xs={6}>
+        <Link to={cardData.slug} className={classes.link}>
+          <CardView cardData={cardData}/>
+        </Link>
+      </Grid>
   )})
 
   const getOrCreateIndex = () => {
@@ -112,9 +125,14 @@ const Search = ({ data, searchIndex }) => {
         value={query}
         onChange={handleSearch}
       />
-      <List className={classes.list}>
-        { query ? searchItems(results) : searchItems(patterns) }
-      </List>
+      {!cardView
+        ? (<List className={classes.list}>
+              { query ? listItems(results) : listItems(patterns) }
+            </List>)
+          : (<Grid container justify="center" spacing={1}>
+          { query ? cards(results) : cards(patterns) }
+        </Grid>)
+      }
     </>
   )
 }
