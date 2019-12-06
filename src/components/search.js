@@ -5,7 +5,8 @@ import {
   TextField,
   List,
   Divider,
-  Typography
+  Typography,
+  Chip,
 } from '@material-ui/core'
 import { Index } from 'elasticlunr'
 
@@ -38,6 +39,20 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: '8px',
     textDecoration: 'none'
   },
+  titleLine: {
+    display: 'flex',
+    alignItems: 'center'
+  },
+  listTitle: {
+    marginRight: theme.spacing(2),
+  },
+  category: {
+    fontWeight: 'bold',
+    marginRight: theme.spacing(1),
+  },
+  rightMargin: {
+    marginRight: theme.spacing(1),
+  },
 }))
 
 const Search = ({ data, searchIndex }) => {
@@ -49,18 +64,27 @@ const Search = ({ data, searchIndex }) => {
 
   let patterns = data || []
 
-  const searchItems = items => items.map(({ title, id, tags, slug }, pIndex) => {
-    const uppercaseTags = tags ? tags.map(tag => `${tag.toUpperCase()} `) : []
+  const searchItems = items => items.map(({ title, id, tags, slug, caption, category, subcategory }, pIndex) => {
+    const chips = tags ? tags.map((tag) => 
+      <Chip label={tag} color="primary" className={classes.rightMargin} />
+    ) : []
     return (
-    <li key={id}>
-      <Link to={slug} className={classes.link}>
-        <div className={classes.listItem}>
-          <Typography>{title}</Typography>
-          <Typography variant='caption'>{uppercaseTags}</Typography>
-        </div>
-        {pIndex < items.length - 1 && <Divider />}
-      </Link>
-    </li>
+      <li key={id}>
+        <Link to={slug} className={classes.link}>
+          <div className={classes.listItem}>
+            <div>
+              <div className={classes.titleLine}>
+                <Typography variant='h6' className={classes.listTitle}>{title}</Typography>
+                <Typography className={classes.category}>{category}:</Typography>
+                <Typography >{subcategory}</Typography>
+              </div>
+              <Typography >{caption}</Typography>
+            </div>
+            <div>{chips}</div>
+          </div>
+          {pIndex < items.length - 1 && <Divider />}
+        </Link>
+      </li>
   )})
 
   const getOrCreateIndex = () => {
