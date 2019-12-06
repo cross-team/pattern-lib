@@ -3,15 +3,6 @@ import PropTypes from 'prop-types';
 import { withWidth, makeStyles, Paper, Typography, Chip } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
-  banner: props => ({
-    width: '100%',
-    minHeight: '200px',
-    display: 'flex',
-    justifyContent: 'space-between',
-    flexWrap: 'wrap',
-    backgroundColor: '#333333',
-    color: '#fff',
-  }),
   title: {
     margin: theme.spacing(2),
   },
@@ -44,16 +35,25 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-  }
+  },
+  banner: props => ({
+    width: '100%',
+    minHeight: '200px',
+    display: 'flex',
+    justifyContent: props.justify,
+    flexWrap: 'wrap',
+    backgroundColor: '#333333',
+    color: '#fff',
+  }),
 }))
 
 function Banner(props) {
   const { width, frontmatter } = props
-  let styleProps
+  let styleProps = {}
   if (width === 'xs' || width === 'sm') {
-    styleProps = 'center'
+    styleProps.justify = 'center'
   } else {
-    styleProps = 'space-between'
+    styleProps.justify = 'space-between'
   }
   const classes = useStyles(styleProps)
 
@@ -69,7 +69,7 @@ function Banner(props) {
           </div>
           <div className={classes.chipContainer}>
             <Typography className={classes.rightMargin}>Tags:</Typography>
-            { frontmatter.tags.map((tag) => 
+            { frontmatter.tags.map((tag) =>
               <Chip label={tag} color="primary" className={classes.rightMargin} />
             ) }
           </div>
@@ -91,7 +91,7 @@ function Banner(props) {
             </div>
             <div className={classes.chipContainer}>
               <Typography className={classes.rightMargin}>Tags:</Typography>
-              { frontmatter.tags.map((tag) => 
+              { frontmatter.tags.map((tag) =>
                 <Chip label={tag} color="primary" className={classes.rightMargin} />
               ) }
             </div>
