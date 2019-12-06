@@ -7,6 +7,7 @@ import {
   Divider,
   Typography,
   Chip,
+  Hidden,
 } from '@material-ui/core'
 import { Index } from 'elasticlunr'
 
@@ -28,6 +29,7 @@ const useStyles = makeStyles(theme => ({
   listItem: {
     display: 'flex',
     justifyContent: 'space-between',
+    flexWrap: 'wrap',
     paddingLeft: '16px',
     paddingRight: '16px',
     width: '100%',
@@ -41,7 +43,8 @@ const useStyles = makeStyles(theme => ({
   },
   titleLine: {
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
+    flexWrap: 'wrap',
   },
   listTitle: {
     marginRight: theme.spacing(2),
@@ -74,13 +77,15 @@ const Search = ({ data, searchIndex }) => {
           <div className={classes.listItem}>
             <div>
               <div className={classes.titleLine}>
-                <Typography variant='h6' className={classes.listTitle}>{title}</Typography>
-                <Typography className={classes.category}>{category}:</Typography>
-                <Typography >{subcategory}</Typography>
+                <Typography className={classes.listTitle}>{title}</Typography>
+                <div>
+                  <Typography variant='caption' className={classes.category}>{category}:</Typography>
+                  <Typography variant='caption' >{subcategory}</Typography>
+                </div>
               </div>
-              <Typography >{caption}</Typography>
+              <Typography variant='caption'>{caption}</Typography>
             </div>
-            <div>{chips}</div>
+            <Hidden xsDown><div>{chips}</div></Hidden>
           </div>
           {pIndex < items.length - 1 && <Divider />}
         </Link>
