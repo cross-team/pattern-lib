@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
-import Search from '../components/search'
+import Search from './search'
 
 const SearchWrapper = ({ data }) => {
   return (
