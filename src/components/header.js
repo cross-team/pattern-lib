@@ -5,6 +5,7 @@ import { AppBar, Toolbar, Typography, makeStyles } from '@material-ui/core'
 import HomeIcon from '@material-ui/icons/Home';
 import Switch from '@material-ui/core/Switch';
 import { ViewContext } from '../context/view'
+import { ViewList, ViewModule } from "@material-ui/icons";
 
 const useStyles = makeStyles(theme => ({
   link: {
@@ -46,12 +47,14 @@ const Header = ({ siteTitle }) => {
             <HomeIcon className={classes.title} />
             <Typography variant='h6' component='h1' className={classes.title}>{ siteTitle }</Typography>
           </Link>
+          <ViewList color='disabled'/>
           <Switch
             checked={cardView}
             onChange={handleChange()}
             color="primary"
             inputProps={{ 'aria-label': 'List or Card View' }}
           />
+          <ViewModule style={{ color: 'white' }}/>
         </Toolbar>
       </div>
     </AppBar>
