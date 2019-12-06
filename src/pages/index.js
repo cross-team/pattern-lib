@@ -10,10 +10,11 @@ export default ({ data }) => {
     id: node.id,
     title: node.frontmatter.title,
     tags: node.frontmatter.tags,
+    slug: node.fields.slug,
+    assets: node.frontmatter.assets,
     caption: node.frontmatter.caption,
     category: node.frontmatter.category,
-    subcategory: node.frontmatter.subcategory,
-    slug: node.fields.slug
+    subcategory: node.frontmatter.subcategory
   }))
   return (
     <Layout>
@@ -34,6 +35,12 @@ export const query = graphql`
             caption
             category
             subcategory
+            assets {
+              asset {
+                image,
+                caption
+              }
+            }
           }
           id
           fields {
