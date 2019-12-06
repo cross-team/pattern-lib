@@ -4,7 +4,6 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { Chip, Divider } from '@material-ui/core';
@@ -60,7 +59,7 @@ export default function CardView({ cardData }) {
         {category} : {subcategory}
         <div>
             {tags.map((tag) => <IconButton aria-label={tag}>
-                <Chip label={tags} color="primary"/>
+                <Chip label={tag} color="primary"/>
             </IconButton>)}
         </div>
       </div>

@@ -129,7 +129,7 @@ const Search = ({ data, searchIndex }) => {
         ? (<List className={classes.list}>
               { query ? listItems(results) : listItems(patterns) }
             </List>)
-          : (<Grid container justify="center" spacing={1}>
+          : (<Grid container justify="center" align='center' spacing={1}>
           { query ? cards(results) : cards(patterns) }
         </Grid>)
       }
