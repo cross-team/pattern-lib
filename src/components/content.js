@@ -6,7 +6,6 @@ const useStyles = makeStyles(theme => ({
   container: {
     backgroundColor: '#fff',
     borderTop: 'solid 4px #ff8001',
-    width: '48%',
     marginTop: theme.spacing(4),
   },
   header: {
