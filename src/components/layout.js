@@ -9,7 +9,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core'
-import ViewContextProvider from '../context/view'
 
 import Header from "./header"
 
@@ -44,7 +43,7 @@ const useStyles = makeStyles({
   },
 })
 
-const Layout = ({ children }) => {
+const Layout = ({ path, children }) => {
   const classes = useStyles()
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -58,10 +57,8 @@ const Layout = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <ViewContextProvider>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header siteTitle={data.site.siteMetadata.title} path={path} />
         <main className={classes.main}>{children}</main>
-      </ViewContextProvider>
     </ThemeProvider>
   )
 }
