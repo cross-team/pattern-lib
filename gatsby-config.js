@@ -12,7 +12,6 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-material-ui`,
     `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -67,6 +66,9 @@ module.exports = {
           // Your axe-core options.
         },
       },
+    },
+    {
+      resolve: 'gatsby-plugin-material-ui',
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

@@ -5,14 +5,6 @@
  */
 
 // You can delete this file if you're not using it
-const React = require("react")
-const ViewContextProvider = require('./src/context/view').default
+// const { wrapRootElement } = require('./wrap-with-context')
 
-
-exports.wrapRootElement = ({ element }) => {
-  return (
-    <ViewContextProvider >
-      {element}
-    </ViewContextProvider>
-  )
-}
+// exports.wrapRootElement = wrapRootElement
