@@ -8,29 +8,10 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core'
-
+import { makeStyles } from '@material-ui/core'
 import Header from "./header"
 
-const theme = createMuiTheme({
-  typography: {
-    fontFamily: [
-      'KnowledgeLight',
-      'Raleway',
-      'Helvetica',
-      'Arial',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(','),
-  },
-  palette: {
-    primary: {
-      main: '#ff8001'
-    },
-  }
-})
+
 
 const useStyles = makeStyles({
   main: {
@@ -56,10 +37,10 @@ const Layout = ({ path, children }) => {
   `)
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
         <Header siteTitle={data.site.siteMetadata.title} path={path} />
         <main className={classes.main}>{children}</main>
-    </ThemeProvider>
+    </>
   )
 }
 
