@@ -18,6 +18,7 @@ const useStyles = makeStyles(theme => ({
   header: {
     backgroundColor: '#333333',
     borderTop: 'solid 2px #ff8001',
+    position: 'fixed',
   },
   title: {
     margin: theme.spacing(1),
@@ -29,7 +30,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
   },
   toolbar: {
-    width: '72%'
+    width: '80%'
   }
 }))
 

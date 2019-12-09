@@ -38,7 +38,7 @@ const useStyles = makeStyles({
     flexDirection: 'column',
     alignItems: 'center',
     margin: '0 auto',
-    maxWidth: '72%',
+    maxWidth: '80%',
     marginTop: '64px',
   },
 })
