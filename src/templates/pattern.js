@@ -22,10 +22,10 @@ export default ({data}) => {
     let result
     if ( frontmatter.assets ) {
       result = frontmatter.assets.map((asset) => (
-        <>
+        <Content title='Assets'>
           <img src={asset.asset.image} alt={asset.asset.caption} className={classes.img}/>
           <Typography>{asset.asset.caption}</Typography>
-        </>
+        </Content>
       ))
     }
     return result
@@ -35,11 +35,11 @@ export default ({data}) => {
     let result
     if ( frontmatter.references ) {
       result = frontmatter.references.map((reference) => (
-        <>
+        <Content title='References'>
           <h2>{reference.reference.title}</h2>
           <Typography>{reference.reference.description}</Typography>
           <a href={reference.reference.url}><Typography>{reference.reference.url}</Typography></a>
-        </>
+        </Content>
       ))
     }
     return result
@@ -50,30 +50,38 @@ export default ({data}) => {
       <Banner frontmatter={frontmatter} />
       <Grid container spacing={4}> 
         <Grid item xs={12} md={6}>
-          <Content title='Problem'>
-            {frontmatter.usage ? <div dangerouslySetInnerHTML={{ __html: markdown.toHTML(frontmatter.problem) }}></div> : ''}
-          </Content>
+          {frontmatter.problem ? (
+            <Content title='Problem'>
+              <div dangerouslySetInnerHTML={{ __html: markdown.toHTML(frontmatter.problem) }}></div>
+            </Content>
+          ) : ''}
         </Grid>
         <Grid item xs={12} md={6}>
-          <Content title='Solution'>
-            {frontmatter.usage ? <div dangerouslySetInnerHTML={{ __html: markdown.toHTML(frontmatter.solution) }}></div> : ''}
-          </Content>
+          {frontmatter.solution ? (
+            <Content title='Solution'>
+              <div dangerouslySetInnerHTML={{ __html: markdown.toHTML(frontmatter.solution) }}></div>
+            </Content>
+          ) : ''}
         </Grid>
         <Grid item xs={12} md={6}>
-          <Content title='Usage'>
-            {frontmatter.usage ? <div dangerouslySetInnerHTML={{ __html: markdown.toHTML(frontmatter.usage) }}></div> : ''}
-          </Content>
+          {frontmatter.usage ? (
+            <Content title='Usage'>
+              <div dangerouslySetInnerHTML={{ __html: markdown.toHTML(frontmatter.usage) }}></div>
+            </Content>
+          ) : ''}
         </Grid>
         <Grid item xs={12} md={6}>
-          <Content title='Accesibility'>
-            {frontmatter.accessibility ? <div dangerouslySetInnerHTML={{ __html: markdown.toHTML(frontmatter.accessibility) }}></div> : ''}
-          </Content>
+          {frontmatter.accessibility ? (
+            <Content title='Accessibility'>
+              <div dangerouslySetInnerHTML={{ __html: markdown.toHTML(frontmatter.accessibility) }}></div>
+            </Content>
+          ) : ''}
         </Grid>
         <Grid item xs={12} md={6}>
-          <Content title='Assets'>{assets()}</Content>
+          {assets()}
         </Grid>
         <Grid item xs={12} md={6}>
-          <Content title='References'>{references()}</Content>
+          {references()}
         </Grid>
       </Grid>
     </Layout>
