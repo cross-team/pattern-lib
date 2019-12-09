@@ -51,8 +51,8 @@ const Header = ({ path, siteTitle }) => {
             <Typography variant='h6' component='h1' className={classes.title}>{ siteTitle }</Typography>
           </Link>
           { onHomePage
-          ? (<><IconButton onClick={handleChange(false)} aria-label="List View">{ViewListIcon(cardView)}/></IconButton>
-          <IconButton onClick={handleChange(true)} aria-label="Grid View">{ViewModuleIcon(cardView)}/></IconButton></>)
+          ? (<><IconButton onClick={handleChange(false)} aria-label="List View">{ViewListIcon(cardView)}</IconButton>
+          <IconButton onClick={handleChange(true)} aria-label="Grid View">{ViewModuleIcon(cardView)}</IconButton></>)
           : null}
 
         </Toolbar>
