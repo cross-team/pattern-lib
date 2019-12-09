@@ -10,8 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { makeStyles } from '@material-ui/core'
 import Header from "./header"
-
-
+import WrapWithContext from './wrap-with-context'
 
 const useStyles = makeStyles({
   main: {
@@ -37,10 +36,10 @@ const Layout = ({ path, children }) => {
   `)
 
   return (
-    <>
+    <WrapWithContext>
         <Header siteTitle={data.site.siteMetadata.title} path={path} />
         <main className={classes.main}>{children}</main>
-    </>
+    </WrapWithContext>
   )
 }
 
