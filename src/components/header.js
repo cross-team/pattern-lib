@@ -33,12 +33,13 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const Header = ({ path, siteTitle }) => {
+const Header = ({ siteTitle }) => {
   const classes = useStyles()
   const handleChange = (cardView) => () => {
     setCardView(cardView);
   };
   const { cardView, setCardView } = useContext(ViewContext)
+  const path = '/' // temp
   const onHomePage = path === '/'
   const ViewListIcon = (cardView) => !cardView ? <ViewList color='primary'/> : <ViewList style={{ color: 'white' }} />
   const ViewModuleIcon = (cardView) => cardView ? <ViewModule color='primary'/> : <ViewModule style={{ color: 'white' }}/>
