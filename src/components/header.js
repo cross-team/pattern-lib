@@ -6,6 +6,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import IconButton from '@material-ui/core/IconButton';
 import { ViewContext } from '../context/view'
 import { ViewList, ViewModule } from "@material-ui/icons";
+import { globalHistory as history } from '@reach/router'
 
 const useStyles = makeStyles(theme => ({
   link: {
@@ -39,8 +40,9 @@ const Header = ({ siteTitle }) => {
     setCardView(cardView);
   };
   const { cardView, setCardView } = useContext(ViewContext)
-  const path = '/' // temp
-  const onHomePage = path === '/'
+  const { location: { pathname } } = history
+
+  const onHomePage = pathname === '/'
   const ViewListIcon = (cardView) => !cardView ? <ViewList color='primary'/> : <ViewList style={{ color: 'white' }} />
   const ViewModuleIcon = (cardView) => cardView ? <ViewModule color='primary'/> : <ViewModule style={{ color: 'white' }}/>
   return (
