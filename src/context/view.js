@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 
-export const ViewContext = React.createContext();
+export const ViewContext = React.createContext({
+    cardView: false,
+    setCardView: () => {}
+});
 
 const ViewContextProvider = ({children}) => {
     const [cardView, setCardView] = useState(false)
