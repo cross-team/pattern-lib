@@ -5,7 +5,7 @@ import Layout from '../components/layout'
 import SearchWrapper from '../components/search-wrapper'
 import SEO from "../components/seo"
 
-export default ({ data }) => {
+export default ({ path, data }) => {
   const mapMarkdown = ({allMarkdownRemark}) => allMarkdownRemark.edges.map(({node}) => ({
     id: node.id,
     title: node.frontmatter.title,
@@ -17,7 +17,7 @@ export default ({ data }) => {
     subcategory: node.frontmatter.subcategory
   }))
   return (
-    <Layout>
+    <Layout path={path}>
       <SEO title="Pattern Library" />
       <SearchWrapper data={ mapMarkdown(data) } />
     </Layout>
