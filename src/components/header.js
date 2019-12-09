@@ -34,15 +34,16 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const Header = ({ path, siteTitle }) => {
+const Header = ({ siteTitle }) => {
   const classes = useStyles()
   const handleChange = (cardView) => () => {
     setCardView(cardView);
   };
   const { cardView, setCardView } = useContext(ViewContext)
+  const path = '/' // temp
   const onHomePage = path === '/'
-  const ViewListIcon = ({ cardView }) => !cardView ? <ViewList color='primary'/> : <ViewList style={{ color: 'white' }} />
-  const ViewModuleIcon = ({ cardView }) => cardView ? <ViewModule color='primary'/> : <ViewModule style={{ color: 'white' }}/>
+  const ViewListIcon = (cardView) => !cardView ? <ViewList color='primary'/> : <ViewList style={{ color: 'white' }} />
+  const ViewModuleIcon = (cardView) => cardView ? <ViewModule color='primary'/> : <ViewModule style={{ color: 'white' }}/>
   return (
     <AppBar className={classes.header}>
       <div className={classes.linkContainer}>
@@ -52,8 +53,8 @@ const Header = ({ path, siteTitle }) => {
             <Typography variant='h6' component='h1' className={classes.title}>{ siteTitle }</Typography>
           </Link>
           { onHomePage
-          ? (<><IconButton onClick={handleChange(false)} aria-label="List View"><ViewListIcon cardView={ cardView }/></IconButton>
-          <IconButton onClick={handleChange(true)} aria-label="Grid View"><ViewModuleIcon cardView={ cardView }/></IconButton></>)
+          ? (<><IconButton onClick={handleChange(false)} aria-label="List View">{ViewListIcon(cardView)}</IconButton>
+          <IconButton onClick={handleChange(true)} aria-label="Grid View">{ViewModuleIcon(cardView)}</IconButton></>)
           : null}
 
         </Toolbar>

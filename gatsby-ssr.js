@@ -5,3 +5,6 @@
  */
 
 // You can delete this file if you're not using it
+const { wrapRootElement } = require('./wrap-with-context')
+
+exports.wrapRootElement = wrapRootElement
