@@ -6,7 +6,7 @@ subcategory: Testing
 tags:
   - Tag 1
   - Tag 2
-caption: This is a caption
+caption: This is a new caption
 problem: |-
   ## Problem Title
 
