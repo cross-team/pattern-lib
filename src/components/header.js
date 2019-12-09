@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React, { useContext } from 'react'
 import { AppBar, Toolbar, Typography, makeStyles } from '@material-ui/core'
 import HomeIcon from '@material-ui/icons/Home';
-import Switch from '@material-ui/core/Switch';
+import IconButton from '@material-ui/core/IconButton';
 import { ViewContext } from '../context/view'
 import { ViewList, ViewModule } from "@material-ui/icons";
 
@@ -33,12 +33,15 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const Header = ({ siteTitle }) => {
+const Header = ({ path, siteTitle }) => {
   const classes = useStyles()
-  const handleChange = () => event => {
-    setCardView(event.target.checked);
+  const handleChange = (cardView) => () => {
+    setCardView(cardView);
   };
   const { cardView, setCardView } = useContext(ViewContext)
+  const onHomePage = path === '/'
+  const ViewListIcon = ({ cardView }) => !cardView ? <ViewList color='primary'/> : <ViewList style={{ color: 'white' }} />
+  const ViewModuleIcon = ({ cardView }) => cardView ? <ViewModule color='primary'/> : <ViewModule style={{ color: 'white' }}/>
   return (
     <AppBar className={classes.header}>
       <div className={classes.linkContainer}>
@@ -47,14 +50,11 @@ const Header = ({ siteTitle }) => {
             <HomeIcon className={classes.title} />
             <Typography variant='h6' component='h1' className={classes.title}>{ siteTitle }</Typography>
           </Link>
-          <ViewList style={{ color: 'white' }}/>
-          <Switch
-            checked={cardView}
-            onChange={handleChange()}
-            color="primary"
-            inputProps={{ 'aria-label': 'List or Card View' }}
-          />
-          <ViewModule style={{ color: 'white' }}/>
+          { onHomePage
+          ? (<><IconButton onClick={handleChange(false)} aria-label="List View"><ViewListIcon cardView={ cardView }/></IconButton>
+          <IconButton onClick={handleChange(true)} aria-label="Grid View"><ViewModuleIcon cardView={ cardView }/></IconButton></>)
+          : null}
+
         </Toolbar>
       </div>
     </AppBar>
