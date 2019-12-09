@@ -23,7 +23,7 @@ const useStyles = makeStyles({
   },
 })
 
-const Layout = ({ path, children }) => {
+const Layout = ({ children }) => {
   const classes = useStyles()
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -37,7 +37,7 @@ const Layout = ({ path, children }) => {
 
   return (
     <WrapWithContexts>
-        <Header siteTitle={data.site.siteMetadata.title} path={path} />
+        <Header siteTitle={data.site.siteMetadata.title} />
         <main className={classes.main}>{children}</main>
     </WrapWithContexts>
   )
