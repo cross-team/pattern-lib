@@ -62,6 +62,8 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const Search = ({ data, searchIndex }) => {
+  console.log('---Data---', data)
+  console.log('---searchIndex---', searchIndex)
   const [query, setQuery] = useState(``)
   const [results, setResults] = useState([])
   const { cardView } = useContext(ViewContext)
