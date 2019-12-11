@@ -1,42 +1,37 @@
 [
-    {
-      "id": "MDU6SXNzdWU1MjUyODU0NzE=",
-      "title": "Modal",
-      "tags": [
-        "Navigation"
-      ],
-      "slug": "Modal"
-    },
-    {
-      "id": "MDU6SXNzdWU1MjcyOTA4OTM=",
-      "title": "Breadcrumbs",
-      "tags": [
-        "Navigation"
-      ],
-      "slug": "Breadcrumbs"
-    },
-    {
-      "id": "MDU6SXNzdWU1MjczMTQ5MDU=",
-      "title": "Slideshow",
-      "tags": [
-        "Data"
-      ],
-      "slug": "Slideshow"
-    },
-    {
-      "id": "MDU6SXNzdWU1MjczNzc5OTk=",
-      "title": "Collectible Achievements",
-      "tags": [
-        "Social"
-      ],
-      "slug": "Collectible Achievements"
-    },
-    {
-      "id": "MDU6SXNzdWU1Mjc0MzEwODE=",
-      "title": "Password Strength Meter",
-      "tags": [
-        "Forms"
-      ],
-      "slug": "Password Strength Meter"
-    }
-  ]
+  {
+    "assets": [
+      {
+        "caption": "Candles on a birthday cake",
+        "image": "/assets/cake.gif"
+      },
+      {
+        "caption": "Some beautiful pizza",
+        "image": "/assets/pizza.jpg"
+      }
+    ],
+    "caption": "This is a new caption",
+    "category": "Miscellaneous",
+    "id": "20cc9a49-2c8a-568c-b843-9069d7ff0b86",
+    "slug": "/sample/",
+    "subcategory": "Testing",
+    "tags": [
+      "Tag 1",
+      "Tag 2"
+    ],
+    "title": "Sample"
+  },
+  {
+    "assets": null,
+    "caption": "Important",
+    "category": "Navigation",
+    "id": "8082403a-1a1f-5203-9b68-14d501a70eb4",
+    "slug": "/second-pattern/",
+    "subcategory": "Any",
+    "tags": [
+      "Design",
+      "Lit"
+    ],
+    "title": "Second Pattern Again"
+  }
+]
