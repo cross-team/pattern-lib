@@ -31,6 +31,8 @@ accessibility: See image below
 assets:
   - asset:
       image: /assets/dropdown-menu-accessibility.png
+  - asset:
+      image: /assets/bs4-dropdown-tips.png
 references:
   - reference:
       url: >-
