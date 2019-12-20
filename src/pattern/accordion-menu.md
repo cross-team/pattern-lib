@@ -18,7 +18,7 @@ usage: >-
   * Take into consideration space used when collapsed and when list with most
   items is open.
 accessibility: >-
-  * **Code header areas in the accordion as buttons**. Using a <button> assures
+  * **Code header areas in the accordion as buttons**. Using a 'button' assures
   that accordions are usable with both screen readers and the keyboard.
 
   * Use aria-expanded on buttons to express an accordion’s default state.
