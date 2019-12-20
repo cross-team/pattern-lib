@@ -21,18 +21,7 @@ If you are looking to fork this repo to use for your own pattern library, I sugg
 
 ## 📝 Creating New Patterns
 
-To create a new pattern for the pattern library to display, go to the Issues tab of the project and click the "New Issue" button. You should be greeted with the "New Pattern Template" and there you can click the "Get Started" button to start filling in the content for your pattern. Once you're done, make sure you add the `publish` label so that it will show up in the application. The app filters out and only displays issues that have the `publish` label. You can add a milestone to the issue for the specific category that your pattern is in, such as navigation, social, or forms.
-
-## 📤 Deploying to Github Pages
-
-Once your pattern library is ready to publish, deploying it to github pages is as simple as running the following command:
-
-```
-
-yarn run deploy
-```
-
-Now your pattern-lib project is being hosted by github pages! You can find your page by going to the environment section of your repo and clicking "View deployment".
+To create a new pattern for the pattern library to display, you need to first be invited as a user to this project's Netlify Identity deployment. Then, you can go to the Netlify-CMS interface by visiting https://pattern-lib.netlify.com/admin/#/ and logging in with your credentials. Then you can click the "New Pattern" button and fill in the resulting form. Once you're done, click "Save" and you'll be brought back to the main Netlify-CMS interface. Click on the "Workflow" tab to move the pattern you just saved to the "Ready" column and click "Publish new entry". Once that's clicked your pattern will be pushed to the repo.
 
 
 ## 🚀 Quick start
