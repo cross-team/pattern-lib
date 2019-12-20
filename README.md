@@ -15,19 +15,9 @@ Kick off your project with this default boilerplate. This starter ships with the
 
 _Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
 
-## 🍴 Cloning/Forking this Repo
+## 🍴 Forking this Repo
 
-If you are looking to clone or fork this repo to run it locally, you will need to create a personal access token for the Github API. This can be done by going [here](https://github.com/settings/tokens) while logged into Github. There you can create a token with the appropriate permissions to read issues and generate the key that will let you access it. Once it's generated, copy the key to your clipboard.
-
-Now create a `.env.development` file in the project root containing: `GITHUB_API_KEY=YOUR_API_KEY` where YOUR_API_KEY is the key you just copied. If you are planning on deploying the app to a production environment you need to create a `.env.production` file as well with the same code as the `.env.development` file you just made.
-
-### Forking
-
-If you are forking this repo into your own project, you'll want to change the github API query in the `gatsby.condig` file. If you go to the `module.exports` in that file and in the `plugins` array, you'll find an object with a `resolve` key that has a value of "gatsby-source-github". Underneath that should be an `options` object with a `queries` key and you'll see a line in the query that looks like this:
-```
-repository(owner: "cross-team", name: "pattern-lib") {
-```
-Change the "cross-team" string and replace it with the your username or organization name that you forked this project under.
+If you are looking to fork this repo to use for your own pattern library, I suggest checking out Part 2 of my tutorial series on building this pattern library [here](https://medium.com/cross-team/open-source-pattern-library-tutorial-part-2-deploying-to-netlify-netlify-cms-130d3641da9f). That portion of the tutorial covers how to set up your own Netlify deployment and Netlify-CMS backend.
 
 ## 📝 Creating New Patterns
 
