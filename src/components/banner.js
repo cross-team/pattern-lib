@@ -71,7 +71,7 @@ function Banner(props) {
             <Typography className={classes.rightMargin}>Tags:</Typography>
             { frontmatter.tags ? frontmatter.tags.map((tag) =>
               <Chip label={tag} color="primary" className={classes.rightMargin} />
-            ) }
+            ) : null }
           </div>
         </div>
       ) : (
