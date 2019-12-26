@@ -10,13 +10,11 @@ caption: Input Hints
 problem: Users needs a helpful hint of what information to input.
 solution: User can see a placeholder text that helps the user know what to input.
 usage: >-
-  Hints should be short.
+  * Hints should be short.
 
+  * Hints should disappear after being used.
 
-  Hints should disappear after being used.
-
-
-  Best practice is for the font of placeholder text to be a lighter color than
+  * Best practice is for the font of placeholder text to be a lighter color than
   user input.
 accessibility: >-
   https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/forms/Basic_form_hints
